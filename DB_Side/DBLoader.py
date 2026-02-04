@@ -21,10 +21,4 @@ class DBLoader:
             print(err)
             return []
 
-loader = DBLoader()
-
-menu_list = loader.sendquery("select * from testtable")
-
-for menu in menu_list:
-    print(menu)
-
+dbloader = DBLoader()
