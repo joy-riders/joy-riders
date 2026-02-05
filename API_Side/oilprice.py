@@ -1,11 +1,13 @@
+import os
 import xml.etree.ElementTree as ET
 import urllib.request
-
+from dotenv import load_dotenv
 
 class ApiOil:
     def __init__(self, api_key: str):
         # 클래스 생성 시 API 키를 저장합니다.
-        self.api_key = api_key
+        load_dotenv()
+        self.api_key = os.getenv('OPINET_API_KEY')
 
     def getdata(self, oil_type: str) -> float:
         # URL 뒤에 API 키(code)를 붙여줍니다.

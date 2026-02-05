@@ -1,12 +1,15 @@
+import os
 import mysql.connector
+from dotenv import load_dotenv
 
 class DBLoader:
     def __init__(self):
+        load_dotenv()
         self.config = {
             "host":"localhost",
             "port":3306,
-            "user":"skn26",
-            "password":"skn26",
+            "user": os.getenv('DB_USER'),
+            "password": os.getenv('DB_PASSWORD'),
             "database":"tco_system"
         }
 

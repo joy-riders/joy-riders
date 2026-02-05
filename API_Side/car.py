@@ -1,16 +1,14 @@
+import os
 from dotenv import load_dotenv
 
 class ApiCar:
     def __init__(self):
         load_dotenv()
+        self.CAR_ID = os.getenv('CAR_ID')
 
     def getdata(self, model_name:str) -> list:
-        import os
-
-        CAR_ID = os.getenv('CAR_ID')
-
         # print(CAR_ID)
-        if not CAR_ID:
+        if not self.CAR_ID:
             raise ValueError('CAR_ID 없음')
 
         import requests
@@ -18,7 +16,7 @@ class ApiCar:
         url = 'https://apis.data.go.kr/B553530/CAREFF/CAREFF_LIST?serviceKey=e2662a6ac375d47f49a02db9e44f8e6abc87244fd2176a548fe453f1ec448f6d&pageNo=1&numOfRows=20&apiType=json'
 
         headers = {
-            'CAR_ID': CAR_ID
+            'CAR_ID': self.CAR_ID
         }
 
         params = {

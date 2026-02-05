@@ -3,7 +3,6 @@ import pandas as pd
 import requests
 import xml.etree.ElementTree as ET
 import os
-from dotenv import load_dotenv
 from API_Side.oilprice import ApiOil
 
 # st.write("### 현재 코드 버전: v2 (업데이트 확인용)")
@@ -15,11 +14,7 @@ from API_Side.oilprice import ApiOil
 # 1. 설정 및 API 정보
 st.set_page_config(page_title="차량 모델별 운영·관리 비용 계산 시스템", page_icon="🚗", layout="wide")
 
-# .env 파일 로드
-load_dotenv()
 
-# 전역 변수로 API 키 설정
-OPINET_API_KEY = os.getenv('OPINET_API_KEY')
 
 # 키가 제대로 들어왔는지 콘솔이나 화면에 잠시 출력해봅니다 (확인 후 삭제)
 # if not OPINET_API_KEY:
