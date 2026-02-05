@@ -36,7 +36,8 @@ class APICarprice:
         for row in search_result:
             modelname = row.select_one("h4").text.strip()
             pl, lh = self.priceparser(row.select_one("td > p").text.strip().split("가격")[1])
-            res.append((modelname, pl, lh))
+            imgref = row.select_one("img")["src"]
+            res.append((modelname, pl, lh, imgref))
 
         return res
 
