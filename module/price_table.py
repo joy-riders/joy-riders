@@ -1,5 +1,5 @@
 import streamlit as st
-from API_Side.carprice import apicarprice
+from API_Side.CarPrice import apicarprice
 
 st.session_state["model_name"] = "기아"
 

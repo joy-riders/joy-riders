@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from API_Side.car import apicar
+from API_Side.CarOil import apicar
 
 st.session_state["model_name"] = "테슬라"
 st.session_state["use_grade"] = True

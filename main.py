@@ -3,7 +3,7 @@ import pandas as pd
 import requests
 import xml.etree.ElementTree as ET
 import os
-from API_Side.oilprice import ApiOil
+from API_Side.OilPrice import ApiOil
 
 # st.write("### 현재 코드 버전: v2 (업데이트 확인용)")
 #
