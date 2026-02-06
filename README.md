@@ -7,12 +7,12 @@
 | [@Ocean-2930](https://github.com/Ocean-2930) | [@parksoyun9084-cloud](https://github.com/parksoyun9084-cloud) | [@minhyeok328](https://github.com/minhyeok328) | [@leere2424](https://github.com/leere2424) | [@wjdduddlf112](https://github.com/wjdduddlf112) | [@sooa02](https://github.com/sooa02) |
 
 
-- 유동현: 조장
-- 박소윤: (설명)
-- 서민혁: (설명)
-- 이레: (설명)
-- 정영일: 기획 및 PM
-- 최수아: (설명)
+- 유동현: 
+- 박소윤: streamlit frontend, db 로드, csv 데이터 수집
+- 서민혁: 연비 api / csv 로드 및 파싱
+- 이레: 연비 api / csv 로드 및 파싱
+- 정영일: db 쿼리문, 기획 및 PM
+- 최수아: streamlit frontend, db 로드
 
 ----
 ## 1. 서론
