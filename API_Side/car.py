@@ -30,7 +30,12 @@ class ApiCar:
 
         if response.status_code == 200:
             data = response.json()
-            data_item = data["response"]["body"]["items"]["item"]
+            try:
+                data_item = data["response"]["body"]["items"]["item"]
+                if isinstance(data_item, dict):
+                    data_item = [data_item]
+            except (KeyError, TypeError):
+                return []  
             keys = [
                 "MODEL_NM",
                 "COMP_NM",
