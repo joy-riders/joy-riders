@@ -1,12 +1,79 @@
 import streamlit as st
 import pandas as pd
-from API_Side import CarOil, CarPrice, OilPrice
+from API_Side import OilPrice
 from DB_Side import DBLoader
 
 # ---------------------------------------------------------
 # 페이지 전체 세팅
 # ---------------------------------------------------------
-st.set_page_config(page_title="차량 모델별 운영·관리 비용 계산 시스템", page_icon="🚗", layout="wide")
+st.set_page_config(page_title="TCO Insight: 데이터로 설계하는 스마트 차량 관리 솔루션", page_icon="🚗", layout="wide")
+st.markdown(
+    """
+    <style>
+    /* 1. 사이트 전체 바깥 배경색 (눈이 편한 연회색) */
+    .stApp {
+        background-color: #F0F2F6;
+    }
+
+    /* 2. 80% 너비의 메인 콘텐츠 박스 설정 */
+    .block-container {
+        max-width: 80% !important;
+        background-color: #FFFFFF; /* 안쪽은 흰색으로 대비를 줌 */
+        padding: 3rem 5rem !important;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        border-radius: 15px; /* 모서리를 둥글게 해서 부드러운 느낌 */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* 은은한 그림자 */
+    }
+
+    /* 상단 헤더 영역 배경색 맞춤 */
+    header[data-testid="stHeader"] {
+        background-color: rgba(0,0,0,0);
+    }
+
+    .subheader-box {
+        background-color: rgba(205, 228, 247, 0.5);
+        border: 1px solid #D1D5DB;
+        border-radius: 8px;
+        padding: 0px 20px; /* 위아래 패딩을 0으로 잡고 높이로 조절 */
+
+        display: flex;
+        align-items: center;
+
+        height: 70px;             /* min-height 대신 고정 height가 정렬 확인에 유리합니다 */
+        margin-bottom: 35px;
+    }
+
+    .subheader-box-result {
+        background-color: rgba(255, 221, 223, 0.5);
+        border: 1px solid #D1D5DB;
+        border-radius: 8px;
+        padding: 0px 20px; /* 위아래 패딩을 0으로 잡고 높이로 조절 */
+
+        display: flex;
+        align-items: center;
+
+        height: 70px;             /* min-height 대신 고정 height가 정렬 확인에 유리합니다 */
+        margin-bottom: 15px;
+    }
+
+    .subheader-text {
+        font-size: 25px !important;
+        font-weight: 600;
+        color: #31333F;
+
+        /* 이 세 줄이 핵심입니다 */
+        margin: 0 !important;     
+        padding: 0 !important;
+        line-height: 1 !important; /* 글자 줄 간격 때문에 생기는 미세 여백 제거 */
+
+        text-align: center;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 
 @st.cache_data
 def get_maintenance_db(displacement, monthly_km):
@@ -47,7 +114,17 @@ def get_maintenance_db(displacement, monthly_km):
 # ---------------------------------------------------------
 # 메인 UI - 사용자 input
 # ---------------------------------------------------------
-st.title("📊 차량 모델별 운영·관리 비용 계산 시스템")
+n1, n2 = st.columns([2, 8])
+
+with n1:
+    st.write(" ")
+    st.image("logo.png", width=200)
+with n2:
+    st.markdown("# TCO Insight")
+    st.markdown("### 데이터로 설계하는 스마트 차량 관리 솔루션")
+
+st.write("")
+st.divider()
 
 # --- 세션 상태 초기화 (요청하신 변수명 적용) ---
 if "in_oil" not in st.session_state:
@@ -62,13 +139,13 @@ if "in_price" not in st.session_state:
 if "open_result" not in st.session_state:
     st.session_state["open_result"] = False
 
-# # 🔽 [테스트용 코드] 이 줄을 추가해서 확인해보세요! (나중에 삭제)
-# # 실제로는 다른 UI에서 받아오겠지만, 지금은 3,500만원이라고 가정
-# # st.session_state["in_price"] = ["테스트 모델", 35000000, 35000000]
-# st.session_state["in_price"] = ('2026 기아 뉴 K8 하이브리드(GL3)', 4206, 5052, 'http://file.carisyou.com/upload/2024/08/27/thumb/FILE_202408270408350340.png')
-
 # [STEP 1] 차량 정보 입력
-st.subheader("1️⃣ 차량 정보 입력")
+st.markdown(f"""
+    <div class="subheader-box">
+        <p class="subheader-text">차량 정보 입력</p>
+    </div>
+    """, unsafe_allow_html=True)
+
 with st.container(border=True):
     c1, c2, c3 = st.columns([2, 1, 1])
 
@@ -101,6 +178,8 @@ with st.container(border=True):
 
     st.session_state["open_result"] = st.session_state["open_result"] or search_button
 
+st.divider()
+
 # ---------------------------------------------------------
 # 연비 입력
 # ---------------------------------------------------------
@@ -112,10 +191,10 @@ if not st.session_state["open_result"]:
 columns = [
     "모델명", "제조사", "연료", "표시효율", "도심효율",
     "고속도로효율", "1회충전주행거리", "예상연료비", "등급", "배기량", "연식"
-    ]
+]
 
 default_value = "모델을 선택해주세요"
-search_result = CarOil.getdata(st.session_state["model_name"])
+search_result = DBLoader.db_search("car_oil", st.session_state["model_name"])
 
 # -----------------------------------------------------------------------------------------------------
 
@@ -139,9 +218,13 @@ for row in search_result:
 # 4. 표 출력 및 상세 선택
 if filtered_data:
     # Pandas DataFrame으로 변환
-    df = pd.DataFrame(filtered_data, columns=columns)
+    df = pd.DataFrame([r[:-1] for r in filtered_data], columns=columns)
 
-    st.subheader(f"'{st.session_state['model_name']}' 검색 결과")
+    st.markdown(f"""
+        <div class="subheader-box">
+            <p class="subheader-text">'{st.session_state['model_name']}' 검색 결과</p>
+        </div>
+        """, unsafe_allow_html=True)
 
     # 전체 결과를 표로 먼저 보여주기
     st.dataframe(df, use_container_width=True)
@@ -169,57 +252,117 @@ else:
     st.warning("검색 결과가 없습니다. 필터 조건을 확인해주세요.")
     st.stop()
 
-# print("===============================================")
-# print(type(st.session_state["in_oil"]))
-# print(st.session_state["in_oil"])
-# print("===============================================")
-
 # ---------------------------------------------------------
 # 가격 입력
 # ---------------------------------------------------------
-price_list = CarPrice.getdata(st.session_state["model_name"])
+price_list = DBLoader.db_search("car_price", st.session_state["model_name"])
 
 option_list = [default_value, ]
 for row in price_list:
     option_list.append(row[0])
 
-    with st.container(border=True):
-        col1, col2 = st.columns([1, 1])
+st.write("")
+st.divider()
+st.markdown(f"""
+        <div class="subheader-box">
+            <p class="subheader-text">가격 정보</p>
+        </div>
+        """, unsafe_allow_html=True)
 
-        with col1:
-            st.image(row[3], use_container_width=True)
+if st.session_state["in_oil"][11] == None:
+    # 3개씩 끊어서 가로로 배치 (Grid Layout)
+    if price_list:
+        # 0부터 리스트 길이까지 3씩 증가 (0, 3, 6 ...)
+        for i in range(0, len(price_list), 3):
+            row_items = price_list[i: i + 3]  # 데이터 3개 가져오기 (마지막엔 남은 것만)
+            cols = st.columns(3)  # 화면을 3등분
 
-        with col2:
-            st.subheader(row[0])
-            st.divider()
+            # 3등분한 컬럼에 데이터 하나씩 넣기
+            for idx, row in enumerate(row_items):
+                with cols[idx]:
+                    with st.container(border=True):
+                        # [사진] 상단에 배치
+                        st.image(row[3], use_container_width=True)
 
-            # 가격 정보
-            st.markdown(f"""
-                    <div style="text-align: right;">
-                        <p style="color: gray; margin: 0; font-size: 0.9rem;">최저가</p>
-                        <h3 style="margin: 0; color: #1E1E1E;">{row[1]:,} 만원</h3>
-                        <div style="margin: 10px 0;"></div>
-                        <p style="color: gray; margin: 0; font-size: 0.9rem;">최고가</p>
-                        <h3 style="margin: 0; color: #1E1E1E;">{row[2]:,} 만원</h3>
-                    </div>
-                """, unsafe_allow_html=True)
+                        # [모델명]
+                        st.markdown(f"**{row[0]}**")
+                        st.divider()
+
+                        # [가격] 하단에 배치 (문자열을 숫자로 변환하여 쉼표 처리)
+                        try:
+                            p_min = int(row[1]) if row[1] else 0
+                            p_max = int(row[2]) if row[2] else 0
+                        except (ValueError, TypeError):
+                            p_min, p_max = 0, 0
+
+                        st.markdown(f"""
+                                        <div style="
+                                            margin-top: -15px; 
+                                            margin-bottom: 25px;
+                                            padding: 0 5px;
+                                            font-size: 0.95rem;
+                                        ">
+                                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                                <span style="color: #666;">최저</span>
+                                                <span style="color: #1E1E1E; font-weight: bold; font-size: 1.1rem;">{p_min:,} 만원</span>
+                                            </div>
+                                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                                <span style="color: #666;">최고</span>
+                                                <span style="color: #1E1E1E; font-weight: bold; font-size: 1.1rem;">{p_max:,} 만원</span>
+                                            </div>
+                                        </div>
+                                    """, unsafe_allow_html=True)
 
         st.caption("※ 위 가격은 선택 옵션 및 트림에 따라 달라질 수 있습니다.")
 
-selected_model = st.selectbox("당신의 차종을 골라주세요", option_list, key="in_price_selected")
+    # 사용자 선택
+    selected_model = st.selectbox("당신의 차종을 골라주세요", option_list, key="in_price_selected")
 
-if selected_model == default_value:
-    st.stop()
+    if selected_model == default_value:
+        st.stop()
 
-for row in price_list:
-    if row[0] == selected_model:
-        st.session_state["in_price"] = row
-        break
+    for row in price_list:
+        if row[0] == selected_model:
+            st.session_state["in_price"] = row
+            break
 
-# print("===============================================")
-# print(type(st.session_state["in_price"]))
-# print(st.session_state["in_price"])
-# print("===============================================")
+else:
+    # 데이터를 가져옴
+    row = DBLoader.sendquery(f"select * from car_price where model_name = '{st.session_state['in_oil'][11]}'")[0]
+
+    # 좌우 여백을 주어 카드를 가운데로 모음 [비율: 1(여백) : 2(카드) : 1(여백)]
+    empty1, center_col, empty2 = st.columns([1, 2, 1])
+
+    with center_col:
+        with st.container(border=True):
+            # 이미지와 텍스트를 1:1로 배치
+            col1, col2 = st.columns([1, 1])
+
+            with col1:
+                st.image(row[3], use_container_width=True)
+
+            with col2:
+                st.subheader(row[0])
+                st.divider()
+
+                # 가격 정보 (오른쪽 정렬 및 위아래 여백 확보)
+                st.markdown(f"""
+                        <div style="text-align: right; padding: 10px 0;">
+                            <p style="color: gray; margin: 0; font-size: 0.9rem;">최저가</p>
+                            <h3 style="margin: 0; color: #1E1E1E;">{int(row[1]):,} 만원</h3>
+                            <div style="margin: 20px 0;"></div>
+                            <p style="color: gray; margin: 0; font-size: 0.9rem;">최고가</p>
+                            <h3 style="margin: 0; color: #1E1E1E;">{int(row[2]):,} 만원</h3>
+                        </div>
+                    """, unsafe_allow_html=True)
+
+            st.caption("※ 위 가격은 선택 옵션 및 트림에 따라 달라질 수 있습니다.")
+
+    # 세션 상태에 저장
+    st.session_state["in_price"] = row
+
+st.write("")
+st.divider()
 
 # ---------------------------------------------------------
 # 주행 패턴 / 연비 선택
@@ -229,12 +372,16 @@ in_oil = st.session_state["in_oil"]
 
 # [STEP 2] 주행 패턴 및 연비 선택
 st.write("")
-st.subheader("2️⃣ 주행 환경 및 주행거리 설정")
-col_p1, col_p2 = st.columns([1, 2])
+st.markdown(f"""
+    <div class="subheader-box">
+        <p class="subheader-text">주행 환경 및 주행거리 설정</p>
+    </div>
+    """, unsafe_allow_html=True)
+col_p1, col_p2 = st.columns([3, 7])
 
 with col_p1:
     pattern = st.radio("주행 패턴", ["복합 주행", "도심 위주", "고속도로 위주"])
-    monthly_km = st.number_input("월간 예상 주행거리(km)", value=1500)
+    monthly_km = st.number_input("월간 예상 주행거리(km)", value=1500, step=100)
     annual_km = monthly_km * 12
 
 with col_p2:
@@ -245,12 +392,17 @@ with col_p2:
         "고속도로 위주": float(in_oil[5])  # [5] 고속
     }
     applied_eff = eff_map[pattern]
-    st.info(f"선택하신 **{pattern}**에 따라 적용된 연비는 **{applied_eff} km/L** 입니다.")
+    st.info(
+        f"선택하신 **{pattern}**에 따라 적용된 연비는 **{applied_eff} {"km/L" if st.session_state["in_oil"][2] != "전기" else "km/kWh"}** 입니다.")
     st.write(f"- 복합: {in_oil[3]} | 도심: {in_oil[4]} | 고속: {in_oil[5]}")
 
 # [STEP 3] 정비 부품 설정
 st.write("")
-st.subheader("3️⃣ 정비 부품 및 소모품 설정")
+st.markdown(f"""
+    <div class="subheader-box">
+        <p class="subheader-text">정비 부품 및 소모품 설정</p>
+    </div>
+    """, unsafe_allow_html=True)
 
 cc_val = in_oil[9]
 fuel_type = in_oil[2]  # 연료 타입 가져오기
@@ -353,7 +505,11 @@ if st.button("💰 월간/연간 운영비용 합산 결과 보기", type="prima
     # 📌 차량 정보 및 가격 요약 (하이브리드/PHEV 대응)
     # ----------------------------------------------------------------
     st.divider()
-    st.markdown("### 📋 최종 견적 요약")
+    st.markdown(f"""
+        <div class="subheader-box-result">
+            <p class="subheader-text">📋 최종 견적 요약</p>
+        </div>
+        """, unsafe_allow_html=True)
 
     with st.container(border=True):
         info_c1, info_c2, info_c3, info_c4 = st.columns(4)
@@ -385,11 +541,13 @@ if st.button("💰 월간/연간 운영비용 합산 결과 보기", type="prima
             st.caption("차량 가격")
             # 값이 없거나 0일 경우 예외 처리
             try:
-                price_val = st.session_state["in_price"][1]
-                if price_val == 0:
+                price_val_min = int(st.session_state["in_price"][1])
+                price_val_max = int(st.session_state["in_price"][2])
+                if price_val_min == 0:
                     p_text = "가격 미정"
                 else:
-                    p_text = f"{price_val:,} 만원"
+                    p_max = f" ~ {price_val_max:,}" if price_val_max != 0 else ""
+                    p_text = f"{price_val_min:,}{p_max} 만원"
             except:
                 p_text = "가격 정보 없음"
 
@@ -399,7 +557,11 @@ if st.button("💰 월간/연간 운영비용 합산 결과 보기", type="prima
     # [비용 결과 출력]
     # ----------------------------------------------------------------
     st.write("")
-    st.markdown("#### 💵 예상 운영 비용")
+    st.markdown(f"""
+        <div class="subheader-box-result">
+            <p class="subheader-text">💵 예상 운영 비용</p>
+        </div>
+        """, unsafe_allow_html=True)
     res_c1, res_c2 = st.columns(2)
     with res_c1:
         # 1. 메트릭 표시
