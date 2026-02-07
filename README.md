@@ -1,3 +1,7 @@
+# SK네트웍스 Family AI 캠프 26기
+
+<hr style="border: 0; height: 3px; background: #f0f0f0;">
+
 # 프로젝트 팀 및 역할
 ### 조이라이더스(Joy-Riders)
 
@@ -7,7 +11,7 @@
 | [@Ocean-2930](https://github.com/Ocean-2930) | [@parksoyun9084-cloud](https://github.com/parksoyun9084-cloud) | [@minhyeok328](https://github.com/minhyeok328) | [@leere2424](https://github.com/leere2424) | [@wjdduddlf112](https://github.com/wjdduddlf112) | [@sooa02](https://github.com/sooa02) |
 
 
-- 유동현: 
+- 유동현: 조장, 전체 아키텍처 및 구조 설계 총괄
 - 박소윤: streamlit frontend, db 로드, csv 데이터 수집
 - 서민혁: 연비 api / csv 로드 및 파싱
 - 이레: 연비 api / csv 로드 및 파싱
@@ -471,23 +475,22 @@ Cost Model에 사용된 정비 및 유지비 데이터는
         <tr>
             <td rowspan="5" style="text-align: center; font-weight: bold; border: 1px solid #ddd;">이레</td>
             <td style="text-align: center; border: 1px solid #ddd;">박소윤</td>
-            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> 어떤 역할이든 도전해보려는 의지를 가지셨고, 맡은 역할을 이해하고 처리하는 속도가 빠르십니다. 또한 뛰어난 디자인 감각과 능숙한 실력으로 발표자료를 구성해주셨고, 적극적으로 팀 일정에 참여하시는 등 열정적인 모습으로 팀원의 사기를 북돋아주셨습니다.  </td>
         </tr>
         <tr>
             <td style="text-align: center; border: 1px solid #ddd;">서민혁</td>
-            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
-        </tr>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요)열정적으로 배우려는 의지와, 팀원의 문제를 같이 고민하고 해결해보려는 따뜻한 자세를 가지셨습니다. 또 유용한 api서칭과 csv작업으로 db를 구축해주셨고, 프로젝트 전반에 걸쳐 좋은 아이디어들을 많이 내셔서 프로젝트 설계에도 도움을 주셨습니다.
         <tr>
             <td style="text-align: center; border: 1px solid #ddd;">유동현</td>
-            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> 프로젝트 주제가 확정된 후 전반적 설계와 총 디렉팅 뿐만 아니라 분업된 코드를 메인으로 합치는 역할을 담당해 주셨고 각각 팀원들에게 적절하게 역할을 배분해주어 원활하게 일이 진행되도록 해주셨습니다. 그리고 팀원들의 걱정이나 막히는 부분은 같이 고민해주면서 잘 해결할 수 있도록 침착하게 이끌어 주셨습니다. </td>
         </tr>
         <tr>
             <td style="text-align: center; border: 1px solid #ddd;">정영일</td>
-            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> 팀의 분위기 메이커이시고 건강 상의 이유가 있으셨지만 끝까지 맡은 역할을 잘 해내주셔서 해당 파트에 부족하다는 느낌이 전혀 들지 않았습니다. 또한 프로젝트의 핵심 내용을 명확히 파악하여 최종 발표자료 만드는 데 기여하셨습니다. </td>
         </tr>
         <tr>
             <td style="text-align: center; border: 1px solid #ddd;">최수아</td>
-            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> 맡은 일에 책임감이 크시고 침착하고 정확하게 일을 해내십니다. 또한 팀원과의 소통이 필요한 부분들은 적극적으로 소통하셔서 코드나 역할 상에 차질이 생기지 않게 해주셨고, 프론트엔드의 구조도 직관적으로 설계해주셔서 프로젝트 완성도를 높여주셨습니다. </td>
         </tr>
     </tbody>
 </table>
@@ -504,23 +507,23 @@ Cost Model에 사용된 정비 및 유지비 데이터는
         <tr>
             <td rowspan="5" style="text-align: center; font-weight: bold; border: 1px solid #ddd;">정영일</td>
             <td style="text-align: center; border: 1px solid #ddd;">박소윤</td>
-            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> Streamlit 기반의 프론트엔드를 담당하며 사용자 관점에서의 화면 구성과 데이터 흐름을 구현했다. DB 로드 및 CSV 데이터 수집을 맡아, 외부 데이터가 서비스에 자연스럽게 연결되도록 기여했다. 단순 구현에 그치지 않고 실제 사용성을 고려한 구조로 프론트엔드를 구성한 점이 인상적이었다. </td>
         </tr>
         <tr>
             <td style="text-align: center; border: 1px solid #ddd;">서민혁</td>
-            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> 연비 API 연동과 CSV 데이터 로드 및 파싱을 담당하며, 외부 데이터 처리의 핵심 역할을 수행했다. 데이터 구조를 정확히 이해하고 필요한 형태로 가공하여 다른 기능들과 원활히 연계될 수 있도록 했다. 데이터 처리 과정에서의 안정성과 정확도를 높이는 데 크게 기여했다. </td>
         </tr>
         <tr>
             <td style="text-align: center; border: 1px solid #ddd;">유동현</td>
-            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> 프로젝트 전반의 구조를 설계하고 팀원들의 역할을 적절히 분배하며, 전체 흐름을 주도한 조장 역할을 수행했다. 초기 기획 단계에서 프로젝트의 방향성을 명확히 잡아주었고, 공통으로 필요한 코드와 기본적인 구현을 직접 담당하며 프로젝트의 기반을 안정적으로 구축했다. 덕분에 팀원들이 각자의 역할에 집중할 수 있는 환경이 잘 마련되었다. </td>
         </tr>
         <tr>
             <td style="text-align: center; border: 1px solid #ddd;">이레</td>
-            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> 연비 API와 CSV 데이터 로드 및 파싱을 함께 담당하며, 데이터 수집 및 전처리 과정에서 중요한 역할을 했다. 반복적인 테스트와 확인을 통해 데이터 오류를 줄이고, 프로젝트 전반에서 데이터 신뢰도를 높이는 데 기여했다. 팀의 데이터 파이프라인이 안정적으로 작동하는 데 큰 도움이 되었다. </td>
         </tr>
         <tr>
             <td style="text-align: center; border: 1px solid #ddd;">최수아</td>
-            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> Streamlit 프론트엔드와 DB 로드를 맡아, 사용자 인터페이스와 데이터 연결을 동시에 고려한 구현을 진행했다. 화면 구성과 데이터 출력이 직관적으로 보이도록 신경 썼으며, 실제 서비스 형태에 가깝게 완성도를 높였다. 프론트엔드와 백엔드 간 연결을 자연스럽게 이어준 점이 인상 깊었다. </td>
         </tr>
     </tbody>
 </table>
