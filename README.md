@@ -375,7 +375,7 @@ Cost Model에 사용된 정비 및 유지비 데이터는
             <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
         </tr>
         <tr>
-            <td style="text-align: center; border: 1px solid #ddd;">유동현</td>
+            <td style="text-align: center; border: 1px  solid #ddd;">유동현</td>
             <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
         </tr>
         <tr>
@@ -405,23 +405,23 @@ Cost Model에 사용된 정비 및 유지비 데이터는
         <tr>
             <td rowspan="5" style="text-align: center; font-weight: bold; border: 1px solid #ddd;">서민혁</td>
             <td style="text-align: center; border: 1px solid #ddd;">박소윤</td>
-            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> Streamlit 기반 UI 설계, DB 및 CSV 데이터를 연동하여 결과를 시각화하는 프론트엔드 구현을 담당. 사용자 관점에서 화면 흐름을 고민하며 결과를 직관적으로 보여주는 데 기여함 </td>
         </tr>
         <tr>
             <td style="text-align: center; border: 1px solid #ddd;">유동현</td>
-            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> 프로젝트 전체 구조를 설계하고, 역할 분담과 일정 관리를 통해 개발 진행을 총괄 담당. 프로젝트 전반의 방향을 안정적으로 잡아주며 팀이 흔들리지 않도록 중심 역할을 수행함 </td>
         </tr>
         <tr>
             <td style="text-align: center; border: 1px solid #ddd;">이레</td>
-            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> API 기반 데이터 수집 및 전처리 후 DB 적재 파이프라인 구축을 담당, 데이터 정확도를 높이기 위해 세부적인 부분까지 꼼꼼하게 점검하는 모습이 인상적이었음 </td>
         </tr>
         <tr>
             <td style="text-align: center; border: 1px solid #ddd;">정영일</td>
-            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> 프로젝트 기획 및 DB 구조 설계에 참여하고, 발표 자료 구성을 통해 결과 전달을 담당. 프로젝트 내용을 잘 정리해 이해하기 쉽게 전달하는 역할을 수행함 </td>
         </tr>
         <tr>
             <td style="text-align: center; border: 1px solid #ddd;">최수아</td>
-            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> Streamlit 환경에서 여러 기능이 안정적으로 동작하도록 기능 간 연동과 실행 구조 구현을 담당. 기능 간 연결 과정에서 발생하는 문제를 빠르게 파악하고 안정화에 기여함 </td>
         </tr>
     </tbody>
 </table>
