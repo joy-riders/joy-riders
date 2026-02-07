@@ -14,7 +14,12 @@
 - 정영일: db 쿼리문, 기획 및 PM
 - 최수아: streamlit frontend, db 로드
 
-----
+<hr style="border: 0; height: 3px; background: #f0f0f0;">
+
+# 🚗 차량 모델별 운영·관리 비용(TCO) 계산 시스템
+
+---
+
 ## 1. 서론
 
 차량을 선택할 때 소비자가 가장 크게 고려하는 요소 중 하나는 **유지비**이다.  
@@ -350,3 +355,205 @@ Cost Model에 사용된 정비 및 유지비 데이터는
 이러한 한계는 설계 오류가 아닌,  
 프로젝트 범위를 명확히 하기 위한 의도적인 제한이며,  
 향후 데이터 확장과 시나리오 고도화를 통해 단계적으로 보완 가능하다.
+
+<hr style="border: 0; height: 3px; background: #f0f0f0;">
+
+## 동료 회고
+
+<table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd; margin-bottom: 30px;">
+    <thead>
+        <tr style="background-color: #f8f9fa;">
+            <th style="width: 15%; border: 1px solid #ddd; padding: 10px;">작성자</th>
+            <th style="width: 15%; border: 1px solid #ddd; padding: 10px;">대상자</th>
+            <th style="border: 1px solid #ddd; padding: 10px;">회고 내용</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="5" style="text-align: center; font-weight: bold; border: 1px solid #ddd;">유동현</td>
+            <td style="text-align: center; border: 1px solid #ddd;">박소윤</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; border: 1px solid #ddd;">서민혁</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; border: 1px solid #ddd;">이레</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; border: 1px solid #ddd;">정영일</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; border: 1px solid #ddd;">최수아</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+        </tr>
+    </tbody>
+</table>
+
+<table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd; margin-bottom: 30px;">
+    <thead>
+        <tr style="background-color: #f8f9fa;">
+            <th style="width: 15%; border: 1px solid #ddd; padding: 10px;">작성자</th>
+            <th style="width: 15%; border: 1px solid #ddd; padding: 10px;">대상자</th>
+            <th style="border: 1px solid #ddd; padding: 10px;">회고 내용</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="5" style="text-align: center; font-weight: bold; border: 1px solid #ddd;">박소윤</td>
+            <td style="text-align: center; border: 1px solid #ddd;">서민혁</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; border: 1px solid #ddd;">유동현</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; border: 1px solid #ddd;">이레</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; border: 1px solid #ddd;">정영일</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; border: 1px solid #ddd;">최수아</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+        </tr>
+    </tbody>
+</table>
+
+<table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd; margin-bottom: 30px;">
+    <thead>
+        <tr style="background-color: #f8f9fa;">
+            <th style="width: 15%; border: 1px solid #ddd; padding: 10px;">작성자</th>
+            <th style="width: 15%; border: 1px solid #ddd; padding: 10px;">대상자</th>
+            <th style="border: 1px solid #ddd; padding: 10px;">회고 내용</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="5" style="text-align: center; font-weight: bold; border: 1px solid #ddd;">서민혁</td>
+            <td style="text-align: center; border: 1px solid #ddd;">박소윤</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; border: 1px solid #ddd;">유동현</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; border: 1px solid #ddd;">이레</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; border: 1px solid #ddd;">정영일</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; border: 1px solid #ddd;">최수아</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+        </tr>
+    </tbody>
+</table>
+
+<table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd; margin-bottom: 30px;">
+    <thead>
+        <tr style="background-color: #f8f9fa;">
+            <th style="width: 15%; border: 1px solid #ddd; padding: 10px;">작성자</th>
+            <th style="width: 15%; border: 1px solid #ddd; padding: 10px;">대상자</th>
+            <th style="border: 1px solid #ddd; padding: 10px;">회고 내용</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="5" style="text-align: center; font-weight: bold; border: 1px solid #ddd;">이레</td>
+            <td style="text-align: center; border: 1px solid #ddd;">박소윤</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; border: 1px solid #ddd;">서민혁</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; border: 1px solid #ddd;">유동현</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; border: 1px solid #ddd;">정영일</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; border: 1px solid #ddd;">최수아</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+        </tr>
+    </tbody>
+</table>
+
+<table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd; margin-bottom: 30px;">
+    <thead>
+        <tr style="background-color: #f8f9fa;">
+            <th style="width: 15%; border: 1px solid #ddd; padding: 10px;">작성자</th>
+            <th style="width: 15%; border: 1px solid #ddd; padding: 10px;">대상자</th>
+            <th style="border: 1px solid #ddd; padding: 10px;">회고 내용</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="5" style="text-align: center; font-weight: bold; border: 1px solid #ddd;">정영일</td>
+            <td style="text-align: center; border: 1px solid #ddd;">박소윤</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; border: 1px solid #ddd;">서민혁</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; border: 1px solid #ddd;">유동현</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; border: 1px solid #ddd;">이레</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; border: 1px solid #ddd;">최수아</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+        </tr>
+    </tbody>
+</table>
+
+<table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd; margin-bottom: 30px;">
+    <thead>
+        <tr style="background-color: #f8f9fa;">
+            <th style="width: 15%; border: 1px solid #ddd; padding: 10px;">작성자</th>
+            <th style="width: 15%; border: 1px solid #ddd; padding: 10px;">대상자</th>
+            <th style="border: 1px solid #ddd; padding: 10px;">회고 내용</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="5" style="text-align: center; font-weight: bold; border: 1px solid #ddd;">최수아</td>
+            <td style="text-align: center; border: 1px solid #ddd;">박소윤</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; border: 1px solid #ddd;">서민혁</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; border: 1px solid #ddd;">유동현</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; border: 1px solid #ddd;">이레</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; border: 1px solid #ddd;">정영일</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+        </tr>
+    </tbody>
+</table>
