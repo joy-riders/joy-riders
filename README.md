@@ -16,8 +16,6 @@
 - 정영일: db 쿼리문, 기획 및 PM
 - 최수아: streamlit frontend, db 로드
 
-<hr style="border: 0; height: 3px; background: #f0f0f0;">
-
 # 🚗 차량 모델별 운영·관리 비용(TCO) 계산 시스템
 
 ## 1. 서론
@@ -341,23 +339,23 @@ Cost Model에 사용된 정비 및 유지비 데이터는
         <tr>
             <td rowspan="5" style="text-align: center; font-weight: bold; border: 1px solid #ddd;">유동현</td>
             <td style="text-align: center; border: 1px solid #ddd;">박소윤</td>
-            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> 훌륭한 디자인적 감각을 활용해서 프로젝트와 발표의 준비를 도움. 스크래핑 데이터를 고객에게 알기 쉬운 UI를 통해 제공하는 코드를 설계 </td>
         </tr>
         <tr>
             <td style="text-align: center; border: 1px solid #ddd;">서민혁</td>
-            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> 스스로의 단점을 빠르게 파악하고 이를 고치기 위해서 도전하는 자세를 일관되게 보여줌. API 데이터를 CSV로 가공하고 다시 데이터로 해석하는 구조를 잘 구축함 </td>
         </tr>
         <tr>
             <td style="text-align: center; border: 1px solid #ddd;">이레</td>
-            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> 차분하게 코드를 구축해서 결과물을 정확하게 구현할 수 있음. pandas를 활용해서 api 데이터를 정리해 소비자에게 제공하는 부분을 잘 설계했음 </td>
         </tr>
         <tr>
             <td style="text-align: center; border: 1px solid #ddd;">정영일</td>
-            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> 기획에 대한 감각이 뛰어나 고객의 관점에서 프로젝트를 상품으로서 돋보이게 할 수 있는 다양한 아이디어를 제시함. 제시한 아이디어를 바탕으로 데이터 베이스 구조를 설계하고 초기값을 채워 넣는 sql문을 제작 </td>
         </tr>
         <tr>
             <td style="text-align: center; border: 1px solid #ddd;">최수아</td>
-            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> 이전의 frontend 경험으로 streamlit 코드를 구축해서 페이지 구조 전반을 훌륭하게 구축함. DB 쿼리 통신 과정을 이해하고 데이터를 DB에 적재하는 과정을 자동화했음 </td>
         </tr>
     </tbody>
 </table>
@@ -444,7 +442,7 @@ Cost Model에 사용된 정비 및 유지비 데이터는
         </tr>
         <tr>
             <td style="text-align: center; border: 1px solid #ddd;">서민혁</td>
-            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요)열정적으로 배우려는 의지와, 팀원의 문제를 같이 고민하고 해결해보려는 따뜻한 자세를 가지셨습니다. 또 유용한 api서칭과 csv작업으로 db를 구축해주셨고, 프로젝트 전반에 걸쳐 좋은 아이디어들을 많이 내셔서 프로젝트 설계에도 도움을 주셨습니다.
+            <td style="border: 1px solid #ddd; padding: 10px;"> 열정적으로 배우려는 의지와, 팀원의 문제를 같이 고민하고 해결해보려는 따뜻한 자세를 가지셨습니다. 또 유용한 api서칭과 csv작업으로 db를 구축해주셨고, 프로젝트 전반에 걸쳐 좋은 아이디어들을 많이 내셔서 프로젝트 설계에도 도움을 주셨습니다.
         <tr>
             <td style="text-align: center; border: 1px solid #ddd;">유동현</td>
             <td style="border: 1px solid #ddd; padding: 10px;"> 프로젝트 주제가 확정된 후 전반적 설계와 총 디렉팅 뿐만 아니라 분업된 코드를 메인으로 합치는 역할을 담당해 주셨고 각각 팀원들에게 적절하게 역할을 배분해주어 원활하게 일이 진행되도록 해주셨습니다. 그리고 팀원들의 걱정이나 막히는 부분은 같이 고민해주면서 잘 해결할 수 있도록 침착하게 이끌어 주셨습니다. </td>
