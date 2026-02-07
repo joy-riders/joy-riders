@@ -1,6 +1,6 @@
 # SK네트웍스 Family AI 캠프 26기
 
-<hr style="border: 0; height: 3px; background: #f0f0f0;">
+---
 
 # 프로젝트 팀 및 역할
 ### 조이라이더스(Joy-Riders)
@@ -349,9 +349,9 @@ Cost Model에 사용된 정비 및 유지비 데이터는
 프로젝트 범위를 명확히 하기 위한 의도적인 제한이며,  
 향후 데이터 확장과 시나리오 고도화를 통해 단계적으로 보완 가능하다.
 
-<hr style="border: 0; height: 3px; background: #f0f0f0;">
-
 ## 동료 회고
+
+---
 
 <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd; margin-bottom: 30px;">
     <thead>
