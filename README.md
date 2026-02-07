@@ -172,7 +172,91 @@ Cost Model은 연산 구조 위에
 유가 정보는 외부 API를 통해 입력되며,  
 Cost Model에서는 연료 유형 구분과 연산 구조만 정의한다.
 
-### 3-3. Scope Definition
+### 3-3. Project Structure & Module Design
+
+본 프로젝트는 데이터 수집, 연산 로직, 데이터 저장, UI 출력의 역할을
+명확히 분리하기 위해 모듈 단위 구조로 설계되었다.
+
+각 모듈은 단일 책임 원칙(Single Responsibility)을 기준으로 구성되었으며,
+API 수집 로직과 DB 처리 로직, 실행 진입점을 물리적으로 분리함으로써
+유지보수성과 확장성을 고려하였다.
+
+프로젝트의 전체 디렉터리 구조는 다음과 같다.
+
+```text
+joy-riders/
+├── API_Side/                 # 외부 데이터 수집 (차량 정보, 유가 등)
+│   ├── CarOil.py             # 차량 연료 정보
+│   ├── CarPrice.py           # 차량 가격 정보 
+│   └── OilPrice.py           # 유가 정보 API 처리
+│
+├── DB_Side/
+│   ├── car_oil.csv           # 차량-연료 관련 데이터
+│   ├── car_price.csv         # 차량 가격 데이터
+│   ├── CSVModule.py          # CSV parsing & export 모듈
+│   ├── DBLoader.py           # MySQL 쿼리 송신 모듈
+│   └── DBsetup.sql           # DB, parts 테이블, 스키마 생성 SQL
+│   └── relation_key.xlsx     # 테이블 관계 정의 문서
+│
+├── main.py                   # 프로그램 실행 진입점
+├── physical_file_loader.py   # CSV → DB 적재 파이프라인
+└── README.md
+```
+
+API_Side는 외부 공공 데이터 및 웹 크롤링을 통해
+차량 제원, 연비, 유가 정보를 수집하는 역할을 담당하며,
+
+DB_Side는 정비 기준 데이터와 차량 관련 데이터를
+일관된 스키마로 관리하여 연산 단계에서 참조 가능한 형태로 제공한다.
+
+main.py는 전체 흐름을 제어하는 진입점으로,
+각 모듈을 조합하여 최종 TCO 계산 결과를 출력한다.
+
+### 3-3-1. Overall Execution Flow (Simplified)
+
+본 시스템의 실행 흐름은  
+**차량 데이터 조회 → 사용자 조건 입력 → 비용 요소 계산 → TCO 산출**의 단계로 구성된다.
+
+아래 코드는 Streamlit UI 로직을 제외하고,  
+실제 유지비 계산에 관여하는 핵심 흐름만을 단순화하여 표현한 예시이다.
+
+```python
+# main.py (simplified flow for documentation)
+
+# 1. 차량 기본 정보 조회 (연비, 연료 타입, 배기량 등)
+oil_info = DBLoader.db_search("car_oil", model_name)
+
+# 2. 차량 가격 정보 조회
+price_info = DBLoader.db_search("car_price", model_name)
+
+# 3. 사용자 주행 조건 입력
+monthly_km = user_input_monthly_km
+annual_km = monthly_km * 12
+driving_pattern = user_selected_pattern
+
+# 4. 주행 패턴에 따른 연비 적용
+applied_eff = select_efficiency(oil_info, driving_pattern)
+
+# 5. 정비 부품 기준 조회 (배기량 → Tier 적용)
+parts_df = get_maintenance_db(
+    displacement=oil_info["displacement"],
+    monthly_km=monthly_km
+)
+
+# 6. 실시간 유가 조회
+fuel_price = OilPrice.getdata(oil_info["fuel_type"])
+
+# 7. 비용 항목별 계산
+annual_fuel_cost = (annual_km / applied_eff) * fuel_price
+annual_tax_cost = calculate_car_tax(oil_info)
+annual_maint_cost = calculate_maintenance_cost(parts_df, annual_km)
+
+# 8. TCO 합산 및 월 단위 환산
+annual_tco = annual_fuel_cost + annual_tax_cost + annual_maint_cost
+monthly_tco = annual_tco / 12
+```
+
+### 3-4. Scope Definition
 
 본 프로젝트는 차량 유지비 전반을 다루되,  
 분석 범위를 명확히 구분하여 해석의 혼선을 방지한다.
@@ -191,7 +275,7 @@ Cost Model에서는 연료 유형 구분과 연산 구조만 정의한다.
 본 프로젝트는 개별 사용자의 실제 지출을 예측하기보다는,  
 **차량 간 유지비를 비교할 수 있는 기준 구조 설계하는 것**을 목표로 한다.
 
-### 3-4. Data Reliability (Cost Model 기준)
+### 3-5. Data Reliability (Cost Model 기준)
 
 Cost Model에 사용된 정비 및 유지비 데이터는  
 단일 출처의 추정치가 아닌,  
@@ -236,6 +320,44 @@ Cost Model에 사용된 정비 및 유지비 데이터는
 | price_tierA | INT | 소형/경제형 차량 정비 단가 |
 | price_tierB | INT | 중형/국산 세단 정비 단가 |
 | price_tierC | INT | 대형/수입 프리미엄 정비 단가 |
+
+### 5-1. ERD (Entity Relationship Diagram)
+
+```mermaid
+erDiagram
+    ATTRIB_OIL   ||--|| ATTRIB_PRICE : "model_name"
+
+    ATTRIB_OIL {
+        VARCHAR model_name PK
+        VARCHAR comp_name
+        VARCHAR fuel_type
+        VARCHAR fuel_eff_mix
+        VARCHAR fuel_eff_cty
+        VARCHAR fuel_eff_hw
+        VARCHAR run_per_charge
+        VARCHAR estm_fuel_price
+        VARCHAR car_class
+        VARCHAR displacement
+        VARCHAR release_year
+        VARCHAR price_model
+    }
+
+    ATTRIB_PRICE {
+        VARCHAR model_name PK
+        VARCHAR price_min
+        VARCHAR price_max
+        TEXT ref_link
+    }
+
+    PARTS {
+        INT pid PK
+        VARCHAR part_name
+        INT cycle_km
+        INT price_tierA
+        INT price_tierB
+        INT price_tierC
+    }
+```
 
 ## 6. 기대효과 및 활용 방안
 
