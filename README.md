@@ -661,23 +661,23 @@ erDiagram
         <tr>
             <td rowspan="5" style="text-align: center; font-weight: bold; border: 1px solid #ddd;">최수아</td>
             <td style="text-align: center; border: 1px solid #ddd;">박소윤</td>
-            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> Streamlit 기능 구현 및 CSV 데이터 수집을 수행하며 데이터를 화면에 적절히 제공했습니다. 프로젝트의 전체 흐름을 이해하고, 디자인 감각을 발휘하여 프로젝트의 발표 자료 제작에서 높은 완성도를 보여주며 팀의 성과를 돋보이게 했습니다. </td>
         </tr>
         <tr>
             <td style="text-align: center; border: 1px solid #ddd;">서민혁</td>
-            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> API 데이터를 가공하여 데이터로 재해석하는 파이프라인을 안정적으로 구축함으로써 전체적인 데이터 처리의 정확도를 높였습니다. 자신이 담당한 부분뿐만 아니라 프로젝트 전반에 관심을 갖고 학습하는 자세를 보여줌으로써 팀원들에게 큰 귀감이 되었습니다. </td>
         </tr>
         <tr>
             <td style="text-align: center; border: 1px solid #ddd;">유동현</td>
-            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> 프로젝트 전반의 코드 흐름과 구조를 설계하며 DB 구축과 연동에 기여했습니다. 명확한 역할 분담을 통해 팀원들이 각자의 업무에 집중할 수 있는 안정적인 개발 환경을 조성하는 리더십을 발휘했습니다. 프로젝트 진행 중 발생하는 기술적 문제를 함께 고민하고 침착하게 조율하며 팀의 중심을 잡아주었습니다. </td>
         </tr>
         <tr>
             <td style="text-align: center; border: 1px solid #ddd;">이레</td>
-            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> API, CSV 로드 및 파싱을 담당해 맡은 역할을 빠르고 정확하게 해내며 DB 구축의 핵심적인 역할을 수행했습니다. 팀원과 활발히 소통하며 프로젝트의 원활한 진행을 돕고, 세부적인 부분까지 꼼꼼하게 점검하는 책임감 있는 모습이 프로젝트의 완성도를 높이는 데 큰 도움이 되었습니다. </td>
         </tr>
         <tr>
             <td style="text-align: center; border: 1px solid #ddd;">정영일</td>
-            <td style="border: 1px solid #ddd; padding: 10px;"> (내용 추가 필요) </td>
+            <td style="border: 1px solid #ddd; padding: 10px;"> 프로젝트에서 단순한 기능 구현을 넘어 기획력을 발휘하여 다양한 아이디어를 제시했습니다. 프로젝트의 방향성 설정에 기여하며 아이디어를 실제 DB 구조와 SQL 쿼리로 연결함으로써, 팀의 기획안을 기술적으로 구체화하는 데 결정적인 역할을 했습니다. </td>
         </tr>
     </tbody>
 </table>
